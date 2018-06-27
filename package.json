@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/flavioho/nodeAPI-Course#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "esm": "^3.0.55",
     "express": "^4.16.3",
     "mongoose": "^5.1.7",
