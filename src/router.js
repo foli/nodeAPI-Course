@@ -1,6 +1,7 @@
 import express from 'express'
 export const router = express.Router()
 import { userRouter } from './resources/users/user.router'
+import { shotRouter } from './resources/shots'
 import userController from './resources/users/user.controller'
 import { sanitizeBody } from 'express-validator/filter'
 
@@ -19,3 +20,4 @@ router.post(
 )
 
 router.use('/users', userRouter)
+router.use('/shots', shotRouter)
