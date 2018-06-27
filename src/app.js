@@ -6,9 +6,13 @@ const app = express()
 import config from './config'
 import { databaseConnect } from './database'
 import { router } from './router'
+import { notFound, logErrors } from './middlewares'
 
 databaseConnect()
 
+/** middleware stack */
+
+/** set the static assets folder */
 app.use(express.static(path.join(__dirname, 'assets')))
 
 app.use(bodyParser.json()) // read json
@@ -18,6 +22,10 @@ if (app.get('env') === 'development') {
 }
 
 app.use('/', router)
+
+/** error handlers */
+app.use(notFound)
+app.use(logErrors)
 
 const port = config.port
 app.listen(port, () =>

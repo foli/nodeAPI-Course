@@ -4,6 +4,7 @@ import { userRouter } from './resources/users/user.router'
 import { shotRouter } from './resources/shots'
 import userController from './resources/users/user.controller'
 import { sanitizeBody } from 'express-validator/filter'
+import { catchErrors } from './middlewares'
 
 router.get('/', (req, res) => res.send('Home Page'))
 router.get('/about', (req, res) => res.send('About Page'))
@@ -16,7 +17,7 @@ router.post(
 			.trim()
 			.escape()
 	],
-	userController.createUser
+	catchErrors(userController.createUser)
 )
 
 router.use('/users', userRouter)

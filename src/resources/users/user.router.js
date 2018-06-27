@@ -2,12 +2,13 @@ import express from 'express'
 import { sanitizeBody } from 'express-validator/filter'
 import userController from './user.controller'
 export const userRouter = express.Router()
+import { catchErrors } from '../../middlewares'
 
-userRouter.route('/').get(userController.getUsers)
+userRouter.route('/').get(catchErrors(userController.getUsers))
 
 userRouter
 	.route('/:id')
-	.get(userController.getProfile)
+	.get(catchErrors(userController.getProfile))
 	.put(
 		[
 			sanitizeBody('email')
@@ -23,6 +24,6 @@ userRouter
 				.trim()
 				.escape()
 		],
-		userController.updateUser
+		catchErrors(userController.updateUser)
 	)
-	.delete(userController.deleteUser)
+	.delete(catchErrors(userController.deleteUser))
