@@ -2,9 +2,11 @@ import path from 'path'
 import express from 'express'
 import bodyParser from 'body-parser'
 import logger from 'morgan'
+
 const app = express()
+
 import config from './config'
-import { databaseConnect } from './database'
+import databaseConnect from './database'
 import { router } from './router'
 import { notFound, logErrors } from './middlewares'
 
@@ -27,6 +29,7 @@ app.use('/', router)
 app.use(notFound)
 app.use(logErrors)
 
+/** start server */
 const port = config.port
 app.listen(port, () =>
 	console.log(`Server is running on http://locahost:${port}`)

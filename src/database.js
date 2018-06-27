@@ -1,9 +1,13 @@
 import mongoose from 'mongoose'
 import appConfig from './config'
 
-export const databaseConnect = (config = appConfig) => {
-	return mongoose
-		.connect(config.database)
-		.then(() => console.log('MongoDB is Ready'))
-		.catch(error => console.log(`Something went wrong ${error}`))
+/** connect to mongoDB with feedback */
+const databaseConnect = async (config = appConfig) => {
+	try {
+		await mongoose.connect(config.database)
+		console.log('Connected to MongoDB!')
+	} catch (error) {
+		console.log(`Something went wrong ${error}`)
+	}
 }
+export default databaseConnect

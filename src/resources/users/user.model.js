@@ -6,7 +6,6 @@ import jwt from 'jsonwebtoken'
 
 import config from '../../config'
 
-/** create a schema (data modeling) */
 const schema = {
 	email: {
 		type: String,
@@ -27,10 +26,8 @@ const schema = {
 	isAdmin: Boolean
 }
 
-/**  create the model*/
 const userSchema = new mongoose.Schema(schema, { timestamps: true })
 
-/** hash password before save to database */
 userSchema.pre('save', async function(next) {
 	if (this.isModified('password')) {
 		const salt = await bcrypt.genSalt(10)
@@ -41,7 +38,6 @@ userSchema.pre('save', async function(next) {
 	}
 })
 
-/** choose user data to send back to client */
 userSchema.methods.toJSON = function() {
 	let userObject = this.toObject()
 	return pick(userObject, [
@@ -54,7 +50,6 @@ userSchema.methods.toJSON = function() {
 	])
 }
 
-/** generate a access token */
 userSchema.methods.generateAuthToken = function() {
 	const token = jwt.sign(
 		{ _id: this._id, isAdmin: this.isAdmin },
@@ -63,7 +58,6 @@ userSchema.methods.generateAuthToken = function() {
 	return token
 }
 
-/** export model */
 export const User = mongoose.model('user', userSchema)
 
 export function validateUser(data) {

@@ -1,7 +1,8 @@
 import express from 'express'
 import { sanitizeBody } from 'express-validator/filter'
+
 import { catchErrors, admin, authorization } from '../../middlewares'
-import userController from './user.controller'
+import { userController } from './user.controller'
 export const userRouter = express.Router()
 
 userRouter.route('/').get(catchErrors(userController.getUsers))
