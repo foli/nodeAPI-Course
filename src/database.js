@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
+import appConfig from './config'
 
-export const databaseConnect = () => {
+export const databaseConnect = (config = appConfig) => {
 	return mongoose
-		.connect('mongodb://localhost/express-app-dev')
+		.connect(config.database)
 		.then(() => console.log('MongoDB is Ready'))
-		.catch(() => console.log(`Something went wrong ${error}`))
+		.catch(error => console.log(`Something went wrong ${error}`))
 }

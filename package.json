@@ -5,7 +5,7 @@
   "main": "index.js",
   "module": "app.js",
   "scripts": {
-    "start": "nodemon index",
+    "start": "NODE_ENV=dev nodemon -r dotenv/config index",
     "lint": "eslint --format table --fix ."
   },
   "repository": {
