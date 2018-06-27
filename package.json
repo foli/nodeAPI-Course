@@ -1,11 +1,11 @@
 {
   "name": "node-api-course",
   "version": "1.0.0",
-  "description": "MEN stack application",
+  "description": "MEN stack API",
   "main": "index.js",
   "module": "app.js",
   "scripts": {
-    "start": "NODE_ENV=dev nodemon -r dotenv/config index",
+    "start": "nodemon -r dotenv/config index",
     "lint": "eslint --format table --fix ."
   },
   "repository": {
