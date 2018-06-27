@@ -1,3 +1,4 @@
+import path from 'path'
 import express from 'express'
 import bodyParser from 'body-parser'
 import logger from 'morgan'
@@ -7,6 +8,8 @@ import { databaseConnect } from './database'
 import { router } from './router'
 
 databaseConnect()
+
+app.use(express.static(path.join(__dirname, 'assets')))
 
 app.use(bodyParser.json()) // read json
 app.use(bodyParser.urlencoded({ extended: true })) // read URLs
