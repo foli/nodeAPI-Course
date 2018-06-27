@@ -1,9 +1,31 @@
 /** import User model */
 import { User, validateUser } from './user.model'
 import pick from 'lodash.pick'
+import bcrypt from 'bcryptjs'
 
 /** create the user controller */
 const userController = {
+	async signIn(req, res) {
+		/** check if user exists */
+		let user = await User.findOne({ email: req.body.email })
+		if (!user) {
+			return res.status(404).send('Invalid password or email')
+		}
+		/** decode hashed password */
+		const password = await bcrypt.compare(req.body.password, user.password)
+		if (!password) {
+			return res.status(400).send('Invalid password or email')
+		}
+		/** create a new access token */
+		const token = user.generateAuthToken()
+
+		/** return user and token */
+		res
+			.header('x-access-token', token)
+			.status(200)
+			.send(user)
+	},
+
 	async createUser(req, res) {
 		const { error } = validateUser(req.body)
 		if (error) {
