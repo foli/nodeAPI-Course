@@ -38,6 +38,26 @@ const userController = {
 		} catch (error) {
 			res.status(400).send(error)
 		}
+	},
+	async getProfile(req, res) {
+		try {
+			const user = await User.findById(req.params.id)
+			if (!user) {
+				return res.status(404).send('User not found!')
+			}
+			res.status(200).send(user)
+		} catch (error) {
+			res.status(400).send(error)
+		}
+	},
+	async getDashboard(req, res) {
+		try {
+			// for this to work we need to create our auth system
+			// const result = await User.findById(req.user._id)
+			res.status(200).send('You must sign in first.')
+		} catch (error) {
+			res.status(400).send(error)
+		}
 	}
 }
 
