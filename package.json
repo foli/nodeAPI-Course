@@ -1,0 +1,25 @@
+{
+  "name": "nodeAPI-Course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "module": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flavioho/nodeAPI-Course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flavioho/nodeAPI-Course/issues"
+  },
+  "homepage": "https://github.com/flavioho/nodeAPI-Course#readme",
+  "dependencies": {
+    "esm": "^3.0.55",
+    "express": "^4.16.3"
+  }
+}
