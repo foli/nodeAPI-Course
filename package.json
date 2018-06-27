@@ -1,25 +1,26 @@
 {
-  "name": "nodeAPI-Course",
+  "name": "node-api-course",
   "version": "1.0.0",
-  "description": "",
+  "description": "MEN stack application",
   "main": "index.js",
-  "module": "main.js",
+  "module": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flavioho/nodeAPI-Course.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Flavio Oliveira",
+  "private": true,
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/flavioho/nodeAPI-Course/issues"
   },
   "homepage": "https://github.com/flavioho/nodeAPI-Course#readme",
   "dependencies": {
     "esm": "^3.0.55",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5"
   }
 }
