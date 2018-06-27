@@ -3,10 +3,11 @@ const app = express()
 
 import config from './config'
 import { databaseConnect } from './database'
+import { router } from './router'
 
 databaseConnect()
 
-app.get('/', (req, res) => res.send('Welcome to Express'))
+app.use('/', router)
 
 const port = config.port
 app.listen(port, () =>
