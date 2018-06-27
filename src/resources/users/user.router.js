@@ -4,8 +4,8 @@ export const userRouter = express.Router()
 
 userRouter
 	.route('/')
-	.get('/', userController.getUsers)
-	.post('/', userController.createUser)
+	.get(userController.getUsers)
+	.post(userController.createUser)
 
 userRouter.get('/:id', (req, res) => {
 	res.send(`User id id: ${req.params.id}`)
