@@ -38,6 +38,7 @@
     "eslint": "^5.0.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.1",
+    "faker": "^4.1.0",
     "prettier": "^1.13.6"
   },
   "prettier": {
