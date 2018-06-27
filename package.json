@@ -30,6 +30,7 @@
     "lodash.merge": "^4.6.1",
     "lodash.pick": "^4.4.0",
     "mongoose": "^5.1.7",
+    "morgan": "^1.9.0",
     "nodemon": "^1.17.5"
   },
   "devDependencies": {
