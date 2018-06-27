@@ -7,6 +7,8 @@ userRouter
 	.get(userController.getUsers)
 	.post(userController.createUser)
 
-userRouter.route('/:id').put(userController.updateUser)
-// .get()
-// .delete()
+userRouter
+	.route('/:id')
+	.put(userController.updateUser)
+	.delete(userController.deleteUser)
+	// .get()

@@ -30,6 +30,14 @@ const userController = {
 		} catch (error) {
 			res.status(400).send(error)
 		}
+	},
+	async deleteUser(req, res) {
+		try {
+			const user = await User.deleteOne({ _id: req.params.id })
+			res.status(200).send(user)
+		} catch (error) {
+			res.status(400).send(error)
+		}
 	}
 }
 
