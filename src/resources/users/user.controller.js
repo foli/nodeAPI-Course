@@ -65,9 +65,8 @@ const userController = {
 		res.status(200).send(user)
 	},
 	async getDashboard(req, res) {
-		// for this to work we need to create our auth system
-		// const result = await User.findById(req.user._id)
-		res.status(200).send('You must sign in first.')
+		const user = await User.findById(req.user._id)
+		res.status(200).send(user)
 	}
 }
 
