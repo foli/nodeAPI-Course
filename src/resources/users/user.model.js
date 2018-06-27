@@ -2,6 +2,9 @@ import mongoose from 'mongoose'
 import pick from 'lodash.pick'
 import bcrypt from 'bcryptjs'
 import Joi from 'joi'
+import jwt from 'jsonwebtoken'
+
+import config from '../../config'
 
 /** create a schema (data modeling) */
 const schema = {
@@ -49,6 +52,15 @@ userSchema.methods.toJSON = function() {
 		'bio',
 		'url'
 	])
+}
+
+/** generate a access token */
+userSchema.methods.generateAuthToken = function() {
+	const token = jwt.sign(
+		{ _id: this._id, isAdmin: this.isAdmin },
+		config.secrets.JWT_SECRET
+	)
+	return token
 }
 
 /** export model */

@@ -27,6 +27,7 @@
     "express": "^4.16.3",
     "express-validator": "^5.2.0",
     "joi": "^13.4.0",
+    "jsonwebtoken": "^8.3.0",
     "lodash.merge": "^4.6.1",
     "lodash.pick": "^4.4.0",
     "mongoose": "^5.1.7",

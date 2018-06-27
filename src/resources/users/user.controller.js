@@ -12,7 +12,13 @@ const userController = {
 
 		let user = new User(pick(req.body, ['email', 'password']))
 		await user.save()
-		res.status(201).send(user)
+
+		const token = user.generateAuthToken()
+
+		res
+			.header('x-access-token', token)
+			.status(201)
+			.send(user)
 	},
 	async getUsers(req, res) {
 		const result = await User.find().sort('createdAt')
