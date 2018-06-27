@@ -39,6 +39,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.1",
     "faker": "^4.1.0",
+    "lodash.sample": "^4.2.1",
     "prettier": "^1.13.6"
   },
   "prettier": {
