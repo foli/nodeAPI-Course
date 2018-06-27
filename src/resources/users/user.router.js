@@ -1,8 +1,8 @@
 import express from 'express'
 import { sanitizeBody } from 'express-validator/filter'
+import { catchErrors, admin, authorization } from '../../middlewares'
 import userController from './user.controller'
 export const userRouter = express.Router()
-import { catchErrors } from '../../middlewares'
 
 userRouter.route('/').get(catchErrors(userController.getUsers))
 
@@ -26,4 +26,4 @@ userRouter
 		],
 		catchErrors(userController.updateUser)
 	)
-	.delete(catchErrors(userController.deleteUser))
+	.delete(authorization, admin, catchErrors(userController.deleteUser))

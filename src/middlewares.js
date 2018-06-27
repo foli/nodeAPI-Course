@@ -1,6 +1,14 @@
 import jwt from 'jsonwebtoken'
 import config from './config'
 
+/** check if user is admin */
+export const admin = (req, res, next) => {
+	if (!req.user.isAdmin) {
+		return res.status(403).send('Nope!')
+	}
+	next()
+}
+
 /** validate access-token */
 export const authorization = (req, res, next) => {
 	const token = req.header('x-access-token')
