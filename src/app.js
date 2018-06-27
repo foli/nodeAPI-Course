@@ -1,5 +1,8 @@
 import express from 'express'
 const app = express()
+import { databaseConnect } from './database'
+
+databaseConnect()
 
 app.get('/', (req, res) => res.send('Welcome to Express'))
 
